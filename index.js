@@ -16,19 +16,34 @@ app.get('/', function (req, res) {
     res.send('World Meme Back Webpage Here');
 });
 
-app.get('/api/v1/getaccounts', function (req, res) {
-    // Get accounts api endpoint
-    res.setHeader('Content-Type', 'application/json');
-    connection.query('SELECT * from accounts', function (err, rows, fields) {
-        if (rows) {
-            res.write(JSON.stringify(rows));
-        } else {
-            res.write("Empty");
-        }
+app.get('/api/v1/account/validate', function (req, res) {
+    /**
+     * Endpoint validates a user, setting its session server-side, AND
+     * also returning the variables so that the market can set the session
+     * on behalf of the client.
+     * 
+     * Address should be:
+     * /api/v1/account/validate?id=int&pwd=string
+     */
 
-        res.end();
-    });
+    var accountId = req.query.id;
+    var accountPassword = req.query.pwd;
 
+    if (accountId && accountPassword) {
+        var sqlQuery = 'SELECT * FROM accounts WHERE accountId = ? AND accountPassword = ?';
+        connection.query(sqlQuery, [accountId, accountPassword], function (err, rows, fields) {
+            if (rows) {
+                // Send a JSON response containing the applicable data
+                res.setHeader('Content-Type', 'application/json');
+                res.write(JSON.stringify(rows));
+                res.end();
+            } else {
+                res.end("Empty");
+            }
+        });
+    } else {
+        res.end("API requires id and pwd");
+    }
 });
 
 // Create the server
