@@ -7,27 +7,32 @@ var connection = mysql.createConnection({
     database: 'wmb'
 });
 
+const SERVER_PORT = 8080;
 
-//Lets define a port we want to listen to
-const PORT = 8080;
 
-//We need a function which handles requests and send response
 function handleRequest(request, response) {
-    // response.end('Path: ' + request.url);
 
-    connection.query('SELECT * from accounts', function (err, rows, fields) {
-        if(rows) {
-            console.log(rows);
-        }
-    });
+    if (request.url == '/getaccounts') {
+        // Set the header to return json object
+        response.setHeader('Content-Type', 'application/json');
 
+        connection.query('SELECT * from accounts', function (err, rows, fields) {
+            if (rows) {
+                response.write(JSON.stringify(rows));
+            } else {
+                response.write("Empty");
+            }
+
+            response.end();
+        });
+    }
+
+    
 }
 
-//Create a server
+// Generate and run a server on the specified port
 var server = http.createServer(handleRequest);
-
-//Lets start our server
-server.listen(PORT, function () {
-    //Callback triggered when server is successfully listening. Hurray!
-    console.log("Server listening on: http://localhost:%s", PORT);
+server.listen(SERVER_PORT, function () {
+    // Callback triggered when server is successfully listening
+    console.log("Meme supreme listening on: http://localhost:" + SERVER_PORT);
 });
