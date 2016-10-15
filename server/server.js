@@ -33,7 +33,6 @@ app.start = function () {
         }
         console.log("> END USER AUTHENTICATION\n============================");
       });
-
     }
   });
 };

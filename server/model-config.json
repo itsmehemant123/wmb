@@ -32,16 +32,14 @@
     "dataSource": "db",
     "public": false
   },
-  "Library": {
+  "Account": {
     "dataSource": "mongodb",
     "public": true,
     "$promise": {},
     "$resolved": true
   },
-  "Book": {
+  "Meme": {
     "dataSource": "mongodb",
-    "public": true,
-    "$promise": {},
-    "$resolved": true
+    "public": false
   }
 }
