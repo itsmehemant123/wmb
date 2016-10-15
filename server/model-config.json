@@ -14,7 +14,7 @@
     ]
   },
   "User": {
-    "dataSource": "db"
+    "dataSource": "mongodb"
   },
   "AccessToken": {
     "dataSource": "db",
