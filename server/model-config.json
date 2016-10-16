@@ -40,6 +40,14 @@
   },
   "Meme": {
     "dataSource": "mongodb",
-    "public": false
+    "public": true,
+    "$promise": {},
+    "$resolved": true
+  },
+  "Listing": {
+    "dataSource": "mongodb",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }

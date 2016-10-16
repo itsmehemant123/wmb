@@ -1,0 +1,31 @@
+{
+  "name": "Listing",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "shortName": {
+      "type": "string",
+      "id": true,
+      "required": true,
+      "index": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "Meme": {
+      "type": "hasMany",
+      "model": "Meme",
+      "foreignKey": "shortName"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

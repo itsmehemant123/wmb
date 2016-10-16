@@ -6,9 +6,17 @@
     "validateUpsert": true
   },
   "properties": {
+    "shortName": {
+      "type": "string",
+      "id": false,
+      "required": false,
+      "index": false,
+      "comments": "Foreign key, linked to shortName of Listing model"
+    },
     "directory": {
       "type": "string",
-      "required": true
+      "required": true,
+      "comments": "Directory of the meme"
     }
   },
   "validations": [],

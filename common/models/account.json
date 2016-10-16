@@ -7,19 +7,20 @@
     "validateUpsert": true
   },
   "properties": {
-    "location": {
-      "type": "string"
-    },
-    "ISBN": {
+    "email": {
       "type": "string",
-      "required": true
+      "required": true,
+      "comments": "Users email"
     },
-    "name": {
+    "password": {
       "type": "string",
-      "required": true
+      "required": true,
+      "comments": "Users password"
     },
-    "numberOfPages": {
-      "type": "number"
+    "emailVerified": {
+      "type": "boolean",
+      "required": true,
+      "comments": "Has the account been verified?"
     }
   },
   "validations": [],
