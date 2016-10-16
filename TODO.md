@@ -1,0 +1,1 @@
+* Website front when accessing '/' page
