@@ -15,24 +15,24 @@ app.start = function () {
       var explorerPath = app.get('loopback-component-explorer').mountPath;
       console.log('Loopback Explorer at %s%s', baseUrl, explorerPath);
 
-      var User = app.models.User;
-      User.login({
-        email: 'caleb.froese@gmail.com',
-        password: 'password123',
-        // 314496000 (10 years)
-        ttl: 314496000
-      }, function (err, accessToken) {
-        console.log("============================\n> LOOPBACK USER AUTHENTICATION");
-        if (err) {
-          console.log("> Error! Could not authorize the user");
-          console.log("> Loopback JSON error response:");
-          console.log("> " + err);
-        } else {
-          console.log("> Success! User has been authorized")
-          console.log("> Access Token: %s", accessToken.id);
-        }
-        console.log("> END USER AUTHENTICATION\n============================");
-      });
+      // var User = app.models.User;
+      // User.login({
+      //   email: 'caleb.froese@gmail.com',
+      //   password: 'password123',
+      //   // 314496000 (10 years)
+      //   ttl: 314496000
+      // }, function (err, accessToken) {
+      //   console.log("============================\n> LOOPBACK USER AUTHENTICATION");
+      //   if (err) {
+      //     console.log("> Error! Could not authorize the user");
+      //     console.log("> Loopback JSON error response:");
+      //     console.log("> %s", err);
+      //   } else {
+      //     console.log("> Success! User has been authorized")
+      //     console.log("> Access Token: %s", accessToken.id);
+      //   }
+      //   console.log("> END USER AUTHENTICATION\n============================");
+      // });
     }
   });
 };
@@ -42,7 +42,6 @@ app.start = function () {
 boot(app, __dirname, function (err) {
   if (err) throw err;
 
-  // start the server if `$ node server.js`
   if (require.main === module)
     app.start();
 });
