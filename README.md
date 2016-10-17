@@ -20,3 +20,4 @@ The World Meme Bank acts as a file storage, user database, and meme ownership se
 If you have contributed to this project, please add your accounts in the format: git-account (reddit-account)
 * calebfroese (frosteesnoman)
 * itsmehemant123 (lyricballoon80)
+* aaruel
